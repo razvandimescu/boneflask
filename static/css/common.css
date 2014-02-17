@@ -1,0 +1,6 @@
+body{
+  background-color: #eee;
+}
+.with_errors{
+  border: solid 1px #ff0000;
+}

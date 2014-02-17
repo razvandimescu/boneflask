@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block styles %}
+ <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/signin.css') }}">
+{% endblock %}
+
+{% block body %}
+{% from "_field_renderer.html" import render_field %}
+<form class="form form-signin form-horizontal" method="post" role="form">
+  <h2 class="form-signin-heading">Signup Below:</h2>
+  {%- if form.errors %}
+    {%- for fieldname, errors in form.errors.items() %}
+      {%- for error in errors %}
+        <p class="error">{{fieldname}}{{error}}</p>
+      {%- endfor %}
+    {%- endfor %}
+  {%- endif %}
+
+  {{ form.csrf_token }}
+  {{ render_field(form.full_name, class="form-control ", placeholder="Full Name") }}
+  {{ render_field(form.email, class="form-control ", placeholder="Email address") }}
+  {{ render_field(form.password, class="form-control ",placeholder="Password") }}
+  <button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
+</form>
+{% endblock %}
