@@ -18,7 +18,7 @@ def seed_db():
   create_all()
 
   from app.models.user import User
-  user = User('Razvan Dimescu', 'ssaricu@gmail.com', 'testing')
+  user = User('user', 'email@gmail.com', 'testing')
   db.session.add(user)
   db.session.commit()
   
